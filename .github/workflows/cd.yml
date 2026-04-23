@@ -1,0 +1,21 @@
+name: Big Data CD
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Zip project
+        run: zip -r project.zip . -x "venv310/*" "__pycache__/*" ".git/*"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: project-package
+          path: project.zip
