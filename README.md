@@ -76,15 +76,42 @@ Nếu chưa có: tải tại https://adoptium.net/
 | Explain plan | Không có | **df.explain() ở 2 chỗ** |
 
 ## 8. CI/CD với GitHub Actions
-Dự án sử dụng GitHub Actions để tự động hóa quy trình:
-CI (Continuous Integration)
-Tự động chạy khi push code
-Kiểm tra:
-Cài đặt môi trường Python 3.10
-Cài đặt PySpark, Delta
-Kiểm tra syntax code
-Kiểm tra import thư viện
-CD (Continuous Delivery)
-Tự động đóng gói project thành file .zip
-Upload artifact sau khi CI thành công
-Sẵn sàng deploy hoặc bàn giao
+
+Dự án sử dụng **GitHub Actions** để tự động hóa quy trình phát triển phần mềm.
+
+###  CI (Continuous Integration)
+Tự động chạy mỗi khi có `push` hoặc `pull request`.
+
+Thực hiện các bước:
+- Cài đặt môi trường Python 3.10
+- Cài đặt các thư viện từ `requirements.txt`
+- Cài đặt Java để chạy PySpark
+- Kiểm tra syntax của file Python
+- Kiểm tra import các thư viện (PySpark, Delta, Pandas, v.v.)
+
+ Mục tiêu: đảm bảo code luôn chạy được và không bị lỗi môi trường.
+
+---
+
+###  CD (Continuous Delivery)
+Tự động chạy sau khi CI thành công.
+
+Thực hiện:
+- Đóng gói toàn bộ project thành file `.zip`
+- Upload artifact lên GitHub
+
+ Mục tiêu: sẵn sàng deploy hoặc bàn giao project.
+
+---
+
+### Artifact
+Sau mỗi lần chạy CD, có thể tải file đóng gói tại:
+
+**GitHub → Actions → Artifacts**
+
+---
+
+### Workflow files
+
+- `.github/workflows/ci.yml` — kiểm tra và build project (CI)
+- `.github/workflows/cd.yml` — đóng gói và phát hành (CD)
