@@ -74,3 +74,17 @@ Nếu chưa có: tải tại https://adoptium.net/
 | Delta partition | Không | **partitionBy Country/job** |
 | Streaming source | Databricks Volume | **CSV local** |
 | Explain plan | Không có | **df.explain() ở 2 chỗ** |
+
+## 8. CI/CD với GitHub Actions
+Dự án sử dụng GitHub Actions để tự động hóa quy trình:
+CI (Continuous Integration)
+Tự động chạy khi push code
+Kiểm tra:
+Cài đặt môi trường Python 3.10
+Cài đặt PySpark, Delta
+Kiểm tra syntax code
+Kiểm tra import thư viện
+CD (Continuous Delivery)
+Tự động đóng gói project thành file .zip
+Upload artifact sau khi CI thành công
+Sẵn sàng deploy hoặc bàn giao
