@@ -1,0 +1,12 @@
+venv310/
+__pycache__/
+*.pyc
+
+delta_warehouse/
+output_charts/
+stream_checkpoint/
+stream_input/
+
+
+*.log
+*.tmp
